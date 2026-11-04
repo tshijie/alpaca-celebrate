@@ -106,7 +106,7 @@ body.celebrating .polaroid{animation:develop 1.05s 1.8s cubic-bezier(.2,.8,.2,1)
       bit.style.setProperty('--h',(shape<.25?5:10+Math.random()*13)+'px');
       bit.style.setProperty('--radius',shape<.25?'50%':'2px');
       bit.style.setProperty('--color',colors[Math.floor(Math.random()*colors.length)]);
-      bit.style.setProperty('--duration',(2.7+Math.random()*2.7)+'s');
+      const isMobile=window.matchMedia('(max-width: 700px)').matches;\n      bit.style.setProperty('--duration',(isMobile ? 6.5+Math.random()*3.5 : 2.7+Math.random()*2.7)+'s');
       bit.style.setProperty('--delay',(delayOffset+Math.random()*.75)+'s');
       bit.style.setProperty('--drift',(Math.random()*260-130)+'px');
       bit.style.setProperty('--spin',(Math.random()*1100-550)+'deg');
@@ -121,7 +121,7 @@ body.celebrating .polaroid{animation:develop 1.05s 1.8s cubic-bezier(.2,.8,.2,1)
     shower(190,0);
     shower(100,.65);
     shower(75,1.35);
-    window.setTimeout(()=>{confetti.innerHTML='';},8500);
+    window.setTimeout(()=>{confetti.innerHTML='';},window.matchMedia('(max-width: 700px)').matches ? 13500 : 8500);
   }
   stage.addEventListener('click',celebrate);
   stage.addEventListener('keydown',e=>{
